@@ -10,10 +10,10 @@ def mask_pii_data(data: Dict[str, Any]) -> Dict[str, Any]:
     locale = data.get("locale", "unknown")
     app_version = data.get("app_version")
 
-    print(f"Raw data: {data}")  # Add this line
+    print(f"Raw data: {data}") 
 
     if user_id is None or device_type is None or ip is None or app_version is None:
-        print(f"Invalid data: {data}")  # Add this line
+        print(f"Invalid data: {data}")  
         return None
 
     masked_ip = hashlib.sha256(ip.encode("utf-8")).hexdigest()
@@ -28,7 +28,7 @@ def mask_pii_data(data: Dict[str, Any]) -> Dict[str, Any]:
         "app_version": app_version,
     }
 
-    print(f"Masked data: {masked_data}")  # Add this line
+    print(f"Masked data: {masked_data}") 
 
     return {
         "user_id": user_id,

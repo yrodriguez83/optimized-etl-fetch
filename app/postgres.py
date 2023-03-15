@@ -5,7 +5,7 @@ from psycopg2.extras import execute_values
 def convert_records_to_tuples(records):
     tuple_list = []
     for record in records:
-        # Add this line to print the attributes of the 'Record' object
+        
         print(f"Record: {record.__dict__}")
         tuple_list.append((record.user_id, record.device_type, record.masked_ip,
                           record.masked_device_id, record.locale, record.app_version, record.create_date))
