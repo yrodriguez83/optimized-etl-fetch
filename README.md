@@ -1,5 +1,5 @@
-# optimized-etl-fetch
-# Data Engineering Take-Home: ETL off an SQS Queue
+# Fetch Rewards Data Engineering Take-Home
+# ETL off an SQS Queue
 
 This project focuses on creating an ETL (Extract, Transform, Load) pipeline to read JSON data containing user login behavior from an AWS SQS Queue, mask specific fields containing personal identifiable information (PII), and write the transformed data to a PostgreSQL database.
 
@@ -111,6 +111,8 @@ In order to make this application production-ready, we could add the following c
 
 Finally, to scale this application with a growing dataset, we could take the following approaches depending on our dev environment:
 
-1. Implement horizontal scaling by adding more instances of the ETL application, allowing it to process data concurrently.
+1. Implement ---> horizontal scaling by adding more instances of the ETL application, allowing it to process data concurrently.
 2. Optimize database performance with proper indexing, partitioning, and sharding strategies.
 3. Use a message broker like Apache Kafka or Amazon Kinesis to handle high throughput and enable data streaming.
+
+Pls email me @ yam.rodriguez23@gmail.com or message me on LinkedIn (link in my github bio) if you want me to implement the aforementioned approaches + next steps and I will happily do so! :relaxes:
