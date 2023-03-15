@@ -1,7 +1,9 @@
-# Fetch Rewards Data Engineering Take-Home
+# Fetch Rewards -- Data Engineering Take-Home Project
 # ETL off an SQS Queue
 
-This project focuses on creating an ETL (Extract, Transform, Load) pipeline to read JSON data containing user login behavior from an AWS SQS Queue, mask specific fields containing personal identifiable information (PII), and write the transformed data to a PostgreSQL database.
+Assignment instructions: https://fetch-hiring.s3.amazonaws.com/data-engineer/pii-masking.pdf 
+
+This project focuses on creating an ETL (Extract, Transform, Load) pipeline to read JSON data containing user login behavior from an AWS SQS Queue, mask specific fields containing personal identifiable information (PII), and writes the transformed data to a PostgreSQL database.
 
 ## Project Setup
 
