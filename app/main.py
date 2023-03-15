@@ -1,43 +1,34 @@
 import json
-from app.sqs import read_messages_from_sqs
+from datetime import datetime
+
+from app.config import POSTGRES_CONNECTION
 from app.postgres import insert_to_postgres
-from app.masking import mask_pii
+from app.mask_pii import mask_pii_fields
+from app.sqs import read_messages_from_sqs
+from app.utils import mask_data
 
-#Function to process messages
 def process_messages(messages):
-    processed_records = []
-
-    # Iterate through each message
+    records = []
     for message in messages:
-        # Parse the JSON data from the message body
         data = json.loads(message["Body"])
-        # Mask the IP and device_id fields
-        masked_ip = mask_pii(data["ip"])
-        masked_device_id = mask_pii(data["device_id"])
-
-        # Create a tuple with the processed record data
+        masked_data = mask_pii_fields(data)
         record = (
-            data["user_id"],
-            data["device_type"],
-            masked_ip,
-            masked_device_id,
-            data["locale"],
-            data["app_version"],
-            data["create_date"]
+            masked_data["user_id"],
+            masked_data["device_type"],
+            masked_data["masked_ip"],
+            masked_data["masked_device_id"],
+            masked_data["locale"],
+            masked_data["app_version"],
+            masked_data["create_date"],
         )
-        # Append the processed record to the list of records
-        processed_records.append(record)
-
-    return processed_records
+        records.append(record)
+    return records
 
 
 def main():
-    # Read messages from the SQS Queue
     messages = read_messages_from_sqs()
-    # Process the messages to extract and mask the necessary data
     records = process_messages(messages)
-    # Insert the processed records into the Postgres database
-    insert_to_postgres(records)
+    insert_to_postgres(POSTGRES_CONNECTION, records)
 
 
 if __name__ == "__main__":
