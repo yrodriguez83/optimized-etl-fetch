@@ -1,5 +1,5 @@
 import pytest
-from app.masking import mask_pii
+from app.mask_pii import mask_pii
 
 
 def test_mask_pii_sha256():
