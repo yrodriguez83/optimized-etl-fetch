@@ -3,7 +3,7 @@ from app.sqs import read_messages_from_sqs
 from app.postgres import insert_to_postgres
 from app.masking import mask_pii
 
-
+#Function to process messages
 def process_messages(messages):
     processed_records = []
 
