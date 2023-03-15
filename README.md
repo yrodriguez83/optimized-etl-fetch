@@ -74,6 +74,9 @@ This command will read messages from the SQS Queue, process the messages to extr
 ## :pray: Running Unit Tests
 
 To run the unit tests, execute the following command from the root of the project directory:
+```
+pytest tests/
+```
 This command will run all tests located in the `tests/` folder and display the results.
 
 ## :eyes: Assumptions: 
