@@ -1,4 +1,5 @@
 import hashlib
+from typing import Dict, Any
 
 
 def mask_ip(ip: str) -> str:
@@ -9,14 +10,15 @@ def mask_device_id(device_id: str) -> str:
     return hashlib.md5(device_id.encode()).hexdigest()
 
 
-def mask_data(data: dict) -> dict:
+def mask_data(data: Dict[str, Any]) -> Dict[str, Any]:
     masked_data = {
-        "user_id": data.get("user_id"),
-        "app_version": int(data.get("app_version").replace(".", "")),
-        "device_type": data.get("device_type"),
-        "masked_ip": mask_ip(data.get("ip")),
-        "locale": data.get("locale"),
-        "masked_device_id": mask_device_id(data.get("device_id")),
-        "create_date": datetime.now().strftime("%Y-%m-%d")
+        "user_id": data["user_id"],
+        "app_version": data["app_version"],
+        "device_type": data["device_type"],
+        "masked_ip": mask_ip(data["ip"]),
+        "locale": data["locale"],
+        "masked_device_id": mask_device_id(data["device_id"]),
+        # Added this line to include the create_date field
+        "create_date": datetime.utcnow().date()
     }
     return masked_data

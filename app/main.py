@@ -7,11 +7,13 @@ from app.mask_pii import mask_pii_fields
 from app.sqs import read_messages_from_sqs
 from app.utils import mask_data
 
-def process_messages(messages):
+
+def process_messages(messages: list) -> list:
     records = []
     for message in messages:
         data = json.loads(message["Body"])
-        masked_data = mask_pii_fields(data)
+        masked_data = mask_pii(data)
+        masked_data["create_date"] = data["create_date"]  
         record = (
             masked_data["user_id"],
             masked_data["device_type"],
