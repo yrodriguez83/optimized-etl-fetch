@@ -13,7 +13,8 @@ def process_messages(messages: list) -> list:
     for message in messages:
         data = json.loads(message["Body"])
         masked_data = mask_pii(data)
-        masked_data["create_date"] = data["create_date"]  
+        # Set a default value if "create_date" is not available
+        masked_data["create_date"] = data.get("create_date", "1970-01-01")
         record = (
             masked_data["user_id"],
             masked_data["device_type"],
