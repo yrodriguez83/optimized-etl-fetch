@@ -115,4 +115,5 @@ Finally, to scale this application with a growing dataset, we could take the fol
 2. Optimize database performance with proper indexing, partitioning, and sharding strategies.
 3. Use a message broker like Apache Kafka or Amazon Kinesis to handle high throughput and enable data streaming.
 
-Pls email me @ yam.rodriguez23@gmail.com or message me on LinkedIn (link in my github bio) if you want me to implement the aforementioned approaches + next steps and I will happily do so! :relaxes:
+###
+Pls email me @ yam.rodriguez23@gmail.com or message me on LinkedIn (link in my github bio) if you want me to implement the aforementioned approaches + next steps and I will happily do so! :relaxed:
