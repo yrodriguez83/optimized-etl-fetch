@@ -1,3 +1,5 @@
+import os
+
 SQS_QUEUE_URL = "http://localhost:4566/000000000000/login-queue"
 
 POSTGRES_CONNECTION = {
