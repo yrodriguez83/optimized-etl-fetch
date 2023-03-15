@@ -14,6 +14,7 @@ This project focuses on creating an ETL (Extract, Transform, Load) pipeline to r
 - AWS CLI (for local testing)
 
 ### Installation
+Step-by-step instructions are as follows:
 
 1. Clone the repository.
 
@@ -62,7 +63,7 @@ The project is structured as follows:
 - `docker-compose.yml`: Docker Compose configuration file to set up the local development environment.
 - `requirements.txt`: File containing the required Python packages for the project.
 
-## :runner:Running the ETL Pipeline: 
+## :runner: Running the ETL Pipeline: 
 
 To run the ETL pipeline, execute the following command from the root of the project directory: 
 ```
@@ -70,12 +71,12 @@ python -m app.main
 ```
 This command will read messages from the SQS Queue, process the messages to extract and mask the necessary data, and insert the records into the PostgreSQL database.
 
-## :pray:Running Unit Tests
+## :pray: Running Unit Tests
 
 To run the unit tests, execute the following command from the root of the project directory:
 This command will run all tests located in the `tests/` folder and display the results.
 
-## :eyes:Assumptions: 
+## :eyes: Assumptions: 
 
 1. The SQS Queue contains JSON data with a consistent structure, containing fields like `user_id`, `device_type`, `ip`, `device_id`, `locale`, `app_version`, and `create_date`.
 2. The PII data (IP and device_id) can be masked using a one-way hashing algorithm (e.g., SHA-256) to preserve uniqueness while ensuring that the original data cannot be easily recovered.
@@ -91,11 +92,11 @@ This command will run all tests located in the `tests/` folder and display the r
 4. Optimize the data processing, for example, by processing messages in batches to improve performance.
 5. Implement more comprehensive tests, including integration and end-to-end tests.
 
-### :raising_hand:Deployment in Production: 
+### :raising_hand: Deployment in Production: 
 
 To deploy this application in production, we could use a managed container orchestration service like AWS Fargate or Kubernetes -- it would allow us to easily manage, scale, and monitor the application in a production environment.:grin:
 
-### :speech_balloon:Production-Ready Components
+### :speech_balloon: Production-Ready Components:
 
 In order to make this application production-ready, we could add the following components:
 
@@ -103,7 +104,7 @@ In order to make this application production-ready, we could add the following c
 2. Monitoring and alerting with tools like Grafana, Prometheus, or Datadog to track the performance and health of the application.
 3. CI/CD pipeline for automated building, testing, and deployment of the application.
 
-### :muscle: Scaling with a Growing Dataset
+### :muscle: Scaling with a Growing Dataset:
 
 Finally, to scale this application with a growing dataset, we could take the following approaches depending on our dev environment:
 
