@@ -1,4 +1,4 @@
-# Fetch Rewards -- Data Engineering Take-Home Project
+# Data Engineering Project
 # ETL off an SQS Queue
 
 Assignment instructions: https://fetch-hiring.s3.amazonaws.com/data-engineer/pii-masking.pdf 
